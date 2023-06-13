@@ -9,8 +9,11 @@ const sql = postgres(process.env.DATABASE_URL);
 const app = express();
 
 app.use(express.json());
+app.get("/",(req, res) => {
+  console.log("Hello World"); });
 
 app.get("/api/tasks", (req, res) => {
+  console.log("hello");
   sql`SELECT * FROM tasks`.then((rows) => {
     res.send(rows);
   });
