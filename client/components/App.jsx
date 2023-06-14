@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import VisitorForm from "./visitorform";
-import SearchResults from "./results";
+// import SearchResults from "./results";
 
 const App = () => {
     const [recipes, setRecipes] = useState([]);
@@ -69,8 +69,15 @@ const App = () => {
             </div>
             <VisitorForm />
             {searchresults.length > 0 ? (
-              
-                <SearchResults searchresults = {searchresults}/>
+                 
+                    searchresults.map((searchresults) => (
+                        <span className="recipes" key={searchresults.id}>
+                            {searchresults.title}
+                            <img src={searchresults.image} alt={searchresults.title} />
+                        </span>
+                    ))
+            
+                // <SearchResults searchresults = {searchresults}/>
             ) : (
             recipes.map((recipes) => (
                 <span className="recipes" key={recipes.id}>
