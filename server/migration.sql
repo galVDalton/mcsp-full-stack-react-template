@@ -13,10 +13,10 @@ INSERT INTO tasks(description) VALUES('Sweep the floor');
 INSERT INTO tasks(description) VALUES('Do your homework');
 INSERT INTO tasks(description) VALUES('Beat Elden Ring');
 
-DROP TABLE IF EXISTS user;
+DROP TABLE IF EXISTS userNames;
 DROP TABLE IF EXISTS favorites;
 
-CREATE TABLE user (
+CREATE TABLE userNames (
   user_id SERIAL,
   username TEXT,
   firstname TEXT,
@@ -29,7 +29,7 @@ CREATE TABLE favorites (
   recipe_id INTEGER
 );
 
-INSERT INTO user(username, firstname, lastname, lastloggedin) 
+INSERT INTO userNames(username, firstname, lastname, lastloggedin) 
 VALUES('daltonandrews', 'dalton', 'andrews', NOW());
 
 INSERT INTO favorites(user_id, recipe_id) VALUES(1, 12);
