@@ -6,7 +6,7 @@ body {
   padding: 8px;
 }
 
-.recipe {
+.recipes {
   display: flex;
   align-items: center;
   border: 1px solid black;
@@ -15,11 +15,11 @@ body {
   max-width: 500px;
 }
 
-.recipe + .recipe {
+.recipes + .recipes {
   margin-top: 4px;
 }
 
-.recipe > * + * {
+.recipes > * + * {
   margin-left: 4px;
 }
-.recipe img{width: 200px;}
+.recipes img{width: 200px;}

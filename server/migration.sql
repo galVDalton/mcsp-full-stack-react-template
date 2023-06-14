@@ -1,36 +1,15 @@
-DROP TABLE IF EXISTS tasks;
-DROP TABLE IF EXISTS user;
-DROP TABLE IF EXISTS favorites;
+DROP TABLE IF EXISTS visitorLog;
 
-CREATE TABLE tasks (
-  id SERIAL,
-  description TEXT
-);
-
-INSERT INTO tasks(description) VALUES('Do the dishes');
-INSERT INTO tasks(description) VALUES('Walk the dog');
-INSERT INTO tasks(description) VALUES('Sweep the floor');
-INSERT INTO tasks(description) VALUES('Do your homework');
-INSERT INTO tasks(description) VALUES('Beat Elden Ring');
-
-DROP TABLE IF EXISTS userNames;
-DROP TABLE IF EXISTS favorites;
-
-CREATE TABLE userNames (
-  user_id SERIAL,
-  username TEXT,
+CREATE TABLE visitorLog (
+  visitor_id SERIAL,
   firstname TEXT,
   lastname TEXT,
-  lastloggedin date
+  visiteddate date
 );
 
-CREATE TABLE favorites (
-  user_id INTEGER,
-  recipe_id INTEGER
-);
 
-INSERT INTO userNames(username, firstname, lastname, lastloggedin) 
-VALUES('daltonandrews', 'dalton', 'andrews', NOW());
+INSERT INTO visitorLog( firstname, lastname, visiteddate) 
+VALUES('dalton', 'andrews', NOW());
 
-INSERT INTO favorites(user_id, recipe_id) VALUES(1, 12);
+
 

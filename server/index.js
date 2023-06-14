@@ -12,31 +12,24 @@ app.use(express.json());
 app.get("/",(req, res) => {
   console.log("Hello World"); });
 
-app.get("/api/tasks", (req, res) => {
+app.get("/api/visitors", (req, res) => {
   console.log("hello");
-  sql`SELECT * FROM tasks`.then((rows) => {
+  sql`SELECT * FROM visitorLog`.then((rows) => {
     res.send(rows);
   });
 });
-app.get("/api/users", (req, res) => {
+app.post("/api/visitors", (req, res) => {
   console.log("hello");
-  sql`SELECT * FROM userNames`.then((rows) => {
-    res.send(rows);
-  });
-});
-app.post("/api/users", (req, res) => {
-  console.log("hello");
-  const {username} = req.body;
   const {firstname} = req.body;
   const {lastname} = req.body;
   
-  sql`INSERT INTO userNames(username, firstname, lastname, lastloggedin) VALUES (${username},${firstname},${lastname}, NOW()) RETURNING *`
+  sql`INSERT INTO visitorLog(firstname, lastname, visiteddate) VALUES (${firstname},${lastname}, NOW()) RETURNING *`
   .then((rows) => {
     res.send(rows[0]);
   })
   .catch((error) => {
     console.error(error);
-    res.status(500).send("Internal Server Error");
+    res.status(500).send(error);
   });
   
 });
